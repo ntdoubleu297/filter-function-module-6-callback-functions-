@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+const employees = [
+  {name: 'peter', salary: 100000},
+  {name: 'bruce', salary: 425000},
+  {name: 'hanna', salary: 750000},
+  {name: 'james', salary: 550800}    
+];
+
+function isBigEnough(element) {
+  let comparison = element.salary <= 500000;
+  return comparison;  	
+}
+
+const filtered = employees.filter(isBigEnough);
+console.log(JSON.stringify(filtered));
+
+</script>
+</html>
+
+<script>
+
+  // as you can see here I have an array of 'employees' and within it, we have four items.  Each of those items an object and we have a couple of value pairs (line 6 - 9); - we have name and salary...
+  // now in this case, we're going to write a filter that is going to select a number of these items based on the 'salary:'
+  //line 18 we are making a call to the filter function, you can see employees.filter and then we are specificying the callback...
+  // now callbacks for filters need to mewet a specific criteria, they need to return a true or false value.
+  //if the item meets the condition of the callback, you keep that item in the new collection that has been filtered.  If it does not meet the criteria you return false. 
+  //now you have the flexibilty to write any criteria you want, you are writing the callback yourself.  However you must return true or false in  order for the filter to do its job...
+  // keeping means returning true, disregard means returning false...***********
+  
+  // let me go ahead and write a variable - let comparison = element.salary <= 500000; - and to this i will assign the result of the comparison....
+  // then we are going to return the comparison....now after we apply this to each of these items, as you remember, whenever we are acting upon an array.  
+  //the callback is applied to each of the items within that collection.
+  // once we are applying thet callback funtion to each of the items, we will have a filtered array and as you can see I have assigned that to a variable called 'filtered.'
+  //and that I am simply going to write into the console for insepction - console.log(JSON.stringify(filtered));....
+  
+  //out put in [{::}, {::}] array/object form peter and bruce @ 100k and 425k in the console...
+  
+  
+  //abel then opens the debugger in the console, inserts a breakpoint at line 13, simply to emphasize THE POINT THAT it is applying this condition to EVERY SINGLE ITEM IN THE ARRAY...
+  //
+
+
+</script>

@@ -1,0 +1,65 @@
+
+<html>
+    <script>
+
+        const list = [5,8,9,2,7,6,3,1,4];
+
+        function callback(list) {
+                // to be done
+        }
+
+        function filter(list,callback){
+            // to be done
+        }
+
+        const filtered = filter(list, callback);{}
+
+        </script>
+       
+        </html>
+
+        
+        <script>
+
+        // and so what i want to do is, I want to be able to write a filter, as you can see here on line 11.  That will take a callback.
+        //now the reason you might want to do this is that, you cannot foresee ahead of time all of the different ways in which someone might want to filter data.
+        //they might not even have an array, they might have a collection of objects or they might have some other complicated data structure.
+        //and so, how they are filtering, what criteria they are using, you cannot know ahead of time...
+        //so if you provide the flexibility of allowing the user of your API to be able to provide a function, a callback function, then you can accomodate this capability without having to write all of the functionality. 
+        
+
+        //so as you can see here we have a couple of functions, 1 is the callback (line 7), the other one is the filter (line 11), and then, we call the filter...
+        //as you can see with TWO PARAMETERS... function filter(list,callback){}....
+        //the very FIRST PARAMETER is the very data we are acting on which is our 'list'...
+        //the SECOND PARAMETER is the 'callback' function....
+        //so lets go ahead and take a look at our 'callback' function...
+
+        const list = [5,8,9,2,7,6,3,1,4];
+
+        function callback(list) { //line 7 addition...a simple callback, we are going to filter this 'list' herein
+            const newList = []; // so we will create a new variable for ourselves....we will call it 'newList' this will be an empty array.
+            for (let i = 0, i < list.length, i++) { //and then we are going to create a for loop to simply move through the data, through the entire length of the list...and we will add a condition their to stop the loop once we have reached that length...
+                if (list[i] < 5) { //now INSIDE OF THE LOOP we are going to have a condition where we're going to check to see simply the value of that number. with a condition to filter those that have a value of LESS THAN 5...
+                newList.push(list[i]); // and now we will "push that item" into the new list via syntax....
+             }
+            
+            }
+            return newList;
+        } //now all we have to do at this point is invoke that callback with the parameter....
+
+
+        function filter (list, callback){  //so we will call the function....
+            return callback(list);  //and we will pass the parameter, and we will return all of this to the line where it is invoked on line 22.
+        
+        }
+
+        // so this is a pretty flexible mechanism and as you will see, there's a lot of structures within the language of Javascript that allow you to provide a callback function.
+        // and we ill see that throughout the number of lessons that we will do on this topic...
+
+        const filtered = filter(list, callback);
+        console.log(filtered) // this to check and see the value on the browser console...
+        </script>
+</html>
+
+
+
