@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="zipCodes.js"></script>
+<script src="graffiti_july_2015.js"></script>
+<script src="graffiti_chart.js"></script>
+
+<div id="chart_div" style="width: 1024px; height: 1600px;"></div> 
+
+<script> // line 8 we are going to define a <div that is going to hold the chart...
+
+const graffiti = []; // we are defining a graffitti array to hold all of the information that we will collect...
+let matching; // we are also defining another variable to hold the matches 
+let obj; // and finally there is one that is an object...
+
+function graffitiReports(zip) { // as you can see here, we're dealing with two collections; two arrays.  The first one is the number of zip codes that we know exist fo the city.
+	matching = chicago.data.filter(function(report){  //and so we are simply going to do a 'forEach' and then assign a callback.  we then use that zip code to filter through the information that we have within the Chicago array.
+		return report[16] === zip;
+		 // --------------------------- //so if you write your filter correctly here you will be able to get back a match for a specific ZIP, in this case the zip that you are passing in and you will get out of those 12ks ONLY the rows that MATCH THAT ZIP.
+		//		YOUR CODE // now once you get that filtered array (called matching) then further down you can get a count 
+		// ---------------------------
+	});
+
+	obj = {}; // then further down you can get a count.  create a new object that we will then push into the graffiti array that we have predefined at line 12.
+	obj.zip = zip;
+	obj.reports = matching.length; // number of rows that we found matching that zip code. so with his bit of code you can get a count of all of all of the graffiti reports for every Zip code in the city of chicago.  
+	graffiti.push(obj);
+}
+
+zipCodes.forEach(graffitiReports); // so for each of those zip codes we are goin to assign a callback 'graffitiReports' and that gives us a zip code that we are going to consider..
+
+// graph graffiti reports data
+window.onload = function(){
+    const dataset = generateDataset(graffiti);	 // now the last 2 lines here at the bottom are simply to generate a dataset.  Behind the scenes written code that I do not need to know how this works...
+    drawChart(dataset); // these last 2 lines will graph it onto the screen of the html doc.  
+};
+
+</script>
+</html>
+
+
+<script>
+
+
+</script>
